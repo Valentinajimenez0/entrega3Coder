@@ -36,15 +36,7 @@ document.addEventListener(`DOMContentLoaded`, () =>{
     traerProductosLS();
     elejirProducto()
     hacerTabla()
-    // carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    // carrito = carrito.map((item) => new Item(item.producto, item.cantidad));
-
-    // // Calcular el contador
-    // contador = carrito.reduce((total, item) => total + item.cantidad, 0);
-    // span.textContent = contador;
-
-    // hacerTabla();
-
+    
     btnAgregar.addEventListener(`click`, () =>{
         const productoSelec = producto[+productosdrop.value]
         const agregoALCarrito = carrito.find((item) => item.producto.nombre === productoSelec.nombre);
@@ -55,10 +47,6 @@ document.addEventListener(`DOMContentLoaded`, () =>{
             carrito.push(item)
         }
 
-        // localStorage.setItem("carrito", JSON.stringify([...carrito]));
- 
-       ///localStorage.setItem("carrito", JSON.stringify(carrito))
-        ///
         contador ++
         span.textContent = contador
 
@@ -112,8 +100,6 @@ carrito.forEach((item) => {
      if (carrito.length === 0){
         alert("Tu carrito esta vacio! Agrega productos ant4es de comprar")
      }else{
-        // const carritoClonado = [...carrito];
-        // localStorage.setItem("carrito", JSON.stringify(carritoClonado));
         carrito = []
 
      const bodyTabla = document.getElementById("body-tabla")
