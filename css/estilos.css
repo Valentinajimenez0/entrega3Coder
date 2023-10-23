@@ -8,3 +8,10 @@
 .body{
     background: #e5d7d5;   
 }
+.carrito{
+    display: flex;
+    justify-content: flex-end;
+}
+#iconoCarrito{
+cursor: pointer;
+}
