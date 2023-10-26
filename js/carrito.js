@@ -29,7 +29,7 @@ async function traerProductos() {
         producto = await response.json()
         elejirProducto();
 
-    }else {
+    } else {
         Toastify({
             text: `hubo un error`,
             duracion: 3000,
@@ -39,9 +39,9 @@ async function traerProductos() {
 }
 
 function elejirProducto() {
-    producto.forEach(({ nombre, precio }, index) => {
+    producto.forEach(({ nombre, precio, img }, index) => {
         const option = document.createElement("option")
-        option.textContent = `${nombre} ` + `$ ${precio}`;
+        option.textContent = `${nombre} ` + `$ ${precio} `;
         option.value = index
         productosdrop.appendChild(option)
     })
@@ -90,11 +90,23 @@ function hacerTabla() {
         </td>
         `;
 
-        const botonEliminar = document.querySelectorAll(`.boton-eliminar`);
+        const botonEliminar = document.querySelectorAll('.boton-eliminar');
         botonEliminar.forEach((Boton, index) => {
-            Boton.addEventListener("click", () => {
-                alert("Se eliminara toda la cantidad que selecciono de este producto")
-                eliminarProducto(index);
+            Boton.addEventListener('click', () => {
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: 'Se eliminará toda la cantidad que seleccionó de este producto.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'ACEPTAR',
+                    confirmButtonColor: "#98FB98",
+                    cancelButtonText: 'CANCELAR',
+                    cancelButtonColor: "#FFA07A",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        eliminarProducto(index);
+                    }
+                });
             });
         });
     });
@@ -114,21 +126,21 @@ function eliminarProducto(index) {
 
 function comprar() {
     if (carrito.length === 0) {
-       // alert("Tu carrito esta vacio! Agrega productos antes de comprar")
-       Toastify({
-        text: "Tu carrito esta vacio ! Agrega productos antes de comprar",
-        duration: 5000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true,
-        style: {
-          background: "#ff0000",
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
+        // alert("Tu carrito esta vacio! Agrega productos antes de comprar")
+        Toastify({
+            text: "Tu carrito esta vacio ! Agrega productos antes de comprar",
+            duration: 5000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true,
+            style: {
+                background: "#ff0000",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
     } else {
         carrito = []
 
@@ -141,27 +153,29 @@ function comprar() {
         span.textContent = contador
         localStorage.removeItem("carrito") || [];
         //alert("TU COMPRA FUE REALIZADA CON EXITO!");
-        
+
         Swal.fire({
             title: 'TU COMPRA FUE REALIZADA CON EXITO!',
             text: 'Te esperamos la proxima',
             icon: 'success',
             confirmButtonText: 'Cerrar'
-          })
+        })
     }
 }
 
-//// inventando
-// const resumencarrito = document.getElementById("iconoCarrito")
+// const iconoCarrito = document.getElementById("iconoCarrito");
+// const contenedorCarrito = document.getElementById("contenedorCarrito");
+// iconoCarrito.addEventListener('click', () => {
+//     carrito.forEach((item) => {
+//         const resumenProductos = document.createElement("div")
+//         resumenProductos.innerHTML = `
+//         <p>${item.producto.nombre} </p>
+//         <p>${item.cantidad} </p>
 
-// resumencarrito.addEventListener(("click"), () => {
-//     let carritoContenido = document.createElement("div");
-//     carritoContenido.className = "resumenDelCarrito"
-//     carritoContenido.innerHTML = `
-//     <h3>${producto.nombre} </h3>
-//     <>${producto.precio} </p>
+//          `
+//         contenedorCarrito.append(resumenProductos);
+//     });
+// });
 
-//     `
-// })
 
 
