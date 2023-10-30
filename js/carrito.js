@@ -16,8 +16,21 @@ function traerProductosLS() {
     span.textContent = contador;
 }
 
+// async function traerProductos() {
+//     const response = await fetch("../js/productos.json")
+//     if (response.ok) {
+//         producto = await response.json()
+//         elejirProducto();
+
+//     } else{
+//         console.error("Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.");
+
+//     }
+// }
+const misProductos = '../js/productos.json';
+
 async function traerProductos() {
-    const response = await fetch("../js/productos.json")
+    const response = await fetch(`${misProductos}`)
     if (response.ok) {
         producto = await response.json()
         elejirProducto();
