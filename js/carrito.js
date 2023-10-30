@@ -1,12 +1,6 @@
 let carrito = [];
 let producto = [];
 
-// producto.push(new Producto("kalimera", 1500))
-// producto.push(new Producto("Calinista", 1300))
-// producto.push(new Producto("Yasas", 6500))
-// producto.push(new Producto("Ticanis", 2500))
-// producto.push(new Producto("Kala", 1900))
-
 localStorage.setItem("productos", JSON.stringify(producto));
 
 const productosdrop = document.getElementById("todosLosProductos")
@@ -17,7 +11,6 @@ botonComprar.addEventListener("click", comprar)
 let contador = 0;
 
 function traerProductosLS() {
-    //producto = JSON.parse(localStorage.getItem("productos")) || [];
     carrito = JSON.parse(localStorage.getItem(`carrito`)) || [];
     contador = carrito.reduce((total, item) => total + item.cantidad, 0);
     span.textContent = contador;
@@ -50,7 +43,6 @@ function elejirProducto() {
 document.addEventListener(`DOMContentLoaded`, () => {
     traerProductos();
     traerProductosLS();
-    // elejirProducto()
     hacerTabla()
 
     btnAgregar.addEventListener(`click`, () => {
@@ -126,20 +118,19 @@ function eliminarProducto(index) {
 
 function comprar() {
     if (carrito.length === 0) {
-        // alert("Tu carrito esta vacio! Agrega productos antes de comprar")
         Toastify({
             text: "Tu carrito esta vacio ! Agrega productos antes de comprar",
             duration: 5000,
             destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
+            gravity: "top", 
+            position: "left", 
             stopOnFocus: true,
             style: {
                 background: "#ff0000",
             },
-            onClick: function () { } // Callback after click
+            onClick: function () { } 
         }).showToast();
     } else {
         carrito = []
@@ -152,7 +143,6 @@ function comprar() {
         contador = 0;
         span.textContent = contador
         localStorage.removeItem("carrito") || [];
-        //alert("TU COMPRA FUE REALIZADA CON EXITO!");
 
         Swal.fire({
             title: 'TU COMPRA FUE REALIZADA CON EXITO!',
@@ -163,19 +153,7 @@ function comprar() {
     }
 }
 
-// const iconoCarrito = document.getElementById("iconoCarrito");
-// const contenedorCarrito = document.getElementById("contenedorCarrito");
-// iconoCarrito.addEventListener('click', () => {
-//     carrito.forEach((item) => {
-//         const resumenProductos = document.createElement("div")
-//         resumenProductos.innerHTML = `
-//         <p>${item.producto.nombre} </p>
-//         <p>${item.cantidad} </p>
 
-//          `
-//         contenedorCarrito.append(resumenProductos);
-//     });
-// });
 
 
 

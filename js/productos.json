@@ -1,32 +1,27 @@
 [
     {
         "nombre": "kalimera",
-        "precio": 1500,
-        "img": "img/WhatsApp Image 2023-07-26 at 00.40.37 (5).jpeg"
+        "precio": 1500
 
     },
     {
         "nombre": "calinista",
-        "precio": 1300,
-        "img": "img/WhatsApp Image 2023-07-26 at 00.40.37 (5).jpeg"
+        "precio": 1300
 
     },
     {
         "nombre": "yasas",
-        "precio": 6500,
-        "img": "img/WhatsApp Image 2023-07-26 at 00.40.37 (5).jpeg"
+        "precio": 6500
 
     },
     {
         "nombre": "ticanis",
-        "precio": 2500,      
-          "img": "img/WhatsApp Image 2023-07-26 at 00.40.37 (5).jpeg"
+        "precio": 2500
 
     },
     {
         "nombre": "kala",
-        "precio": 1900,
-        "img": "img/WhatsApp Image 2023-07-26 at 00.40.37 (5).jpeg"
+        "precio": 1900
 
     }
 ]
