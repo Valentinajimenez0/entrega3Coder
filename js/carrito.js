@@ -24,6 +24,7 @@ async function traerProductos() {
 
     } else{
         console.error("Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.");
+
     }
 }
 
