@@ -22,12 +22,8 @@ async function traerProductos() {
         producto = await response.json()
         elejirProducto();
 
-    } else {
-        Toastify({
-            text: `hubo un error`,
-            duracion: 3000,
-            gravity: `right`
-        }).showtoast();
+    } else{
+        console.error("Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.");
     }
 }
 
