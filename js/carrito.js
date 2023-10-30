@@ -27,17 +27,15 @@ function traerProductosLS() {
 
 //     }
 // }
-const misProductos = '../js/productos.json';
 
 async function traerProductos() {
-    const response = await fetch(`${misProductos}`)
+    const response = await fetch('../js/productos.json');
     if (response.ok) {
-        producto = await response.json()
+        producto = await response.json();
         elejirProducto();
-
-    } else{
+        localStorage.setItem("productos", JSON.stringify(producto));
+    } else {
         console.error("Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.");
-
     }
 }
 
