@@ -11,7 +11,7 @@ botonComprar.addEventListener("click", comprar)
 let contador = 0;
 
 function traerProductosLS() {
-    carrito = JSON.parse(localStorage.getItem(`carrito`)) || [];
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     contador = carrito.reduce((total, item) => total + item.cantidad, 0);
     span.textContent = contador;
 }
@@ -37,12 +37,12 @@ function elejirProducto() {
     })
 }
 
-document.addEventListener(`DOMContentLoaded`, () => {
+document.addEventListener("DOMContentLoaded", () => {
     traerProductos();
     traerProductosLS();
     hacerTabla()
 
-    btnAgregar.addEventListener(`click`, () => {
+    btnAgregar.addEventListener("click", () => {
         const productoSelec = producto[+productosdrop.value]
         const agregoALCarrito = carrito.find((item) => item.producto.nombre === productoSelec.nombre);
         if (agregoALCarrito) {
