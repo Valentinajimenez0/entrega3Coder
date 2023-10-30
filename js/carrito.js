@@ -29,7 +29,7 @@ function traerProductosLS() {
 // }
 
 async function traerProductos() {
-    const response = await fetch('../js/productos.json');
+    const response = await fetch('../js/misProductos.json');
     if (response.ok) {
         producto = await response.json();
         elejirProducto();
